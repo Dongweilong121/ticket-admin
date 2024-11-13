@@ -13,6 +13,7 @@ import { stringify } from "qs";
 import NProgress from "../progress";
 import { getToken, formatToken } from "@/utils/auth";
 import { useUserStoreHook } from "@/store/modules/user";
+import { ElMessageBox } from "element-plus";
 
 // 相关配置请参考：www.axios-js.com/zh-cn/docs/#axios-request-config-1
 const defaultConfig: AxiosRequestConfig = {
@@ -124,6 +125,27 @@ class PureHttp {
         const $config = response.config;
         // 关闭进度条动画
         NProgress.done();
+
+        // 添加响应状态判断
+        if (response.data.code == 403) {
+          return ElMessageBox.confirm(
+            '登录已过期，请重新登录',
+            '提示',
+            {
+              confirmButtonText: '确定',
+              cancelButtonText: '取消',
+              type: 'warning',
+            }
+          ).then(() => {
+            useUserStoreHook().logOut();
+            window.location.href = "/login";
+            return Promise.reject(new Error('登录已过期，请重新登录'));
+          }).catch(() => {
+            // 用户点击取消按钮的处理逻辑
+            return Promise.reject(new Error('用户取消登出操作'));
+          });
+        }
+
         // 优先判断post/get等方法是否传入回调，否则执行初始化设置等回调
         if (typeof $config.beforeResponseCallback === "function") {
           $config.beforeResponseCallback(response);

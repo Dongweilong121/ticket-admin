@@ -1,9 +1,13 @@
+
+
 // 最简代码，也就是这些字段必须有
 export default {
   path: "/model",
+  redirect: "/model/ticketModel",
   meta: {
     title: "数据看板",
-    icon: "material-symbols:home"
+    icon: "material-symbols:home",
+    rank: 1
   },
   children: [
     {
@@ -19,7 +23,7 @@ export default {
       name: "userModel",
       component: () => import("@/views/model/userModel.vue"),
       meta: {
-        title: "用户管理"
+        title: "游客数据"
       }
     }
   ]

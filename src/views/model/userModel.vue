@@ -38,15 +38,15 @@ const ticketData = ref([
   <div>
     <div class="flex flex-row items-center justify-between ">
       <el-card shadow="never" style="margin-top: 20px;padding: 20px; border-radius:10px;width: 49%;">
-        <TicketChart :data="ticketData" />
+        <TicketChart :data="ticketData" title="游客年龄" :case="2" />
       </el-card>
       <el-card shadow="never" style="margin-top: 20px;padding: 20px; border-radius:10px;width: 49%;">
-        <TicketChart :data="ticketData" />
+        <TicketChart :data="ticketData" title="性别" :case="3" />
       </el-card>
     </div>
     <div>
       <el-card shadow="never" style="margin-top: 20px;padding: 20px; border-radius:10px;">
-        <TicketChart :data="ticketData" />
+        <TicketChart :data="ticketData" title="地区统计" :case="4" />
       </el-card>
     </div>
 

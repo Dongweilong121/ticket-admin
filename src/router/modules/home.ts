@@ -3,9 +3,8 @@ const Layout = () => import("@/layout/index.vue");
 
 export default {
   path: "/",
-  name: "Home",
   component: Layout,
-  redirect: "/welcome",
+  redirect: "/model",
   meta: {
     icon: "ep:home-filled",
     title: "首页",

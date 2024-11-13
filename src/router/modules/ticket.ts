@@ -3,7 +3,8 @@ export default {
   path: "/ticket",
   meta: {
     title: "票务模块",
-    icon: "material-symbols:home"
+    icon: "material-symbols:home",
+    rank: 2
   },
   children: [
     {
