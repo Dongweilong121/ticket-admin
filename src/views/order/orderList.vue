@@ -62,13 +62,13 @@ const dialogVisible = ref(false)
             </span>
           </template>
         </el-table-column>
-        <el-table-column fixed="right" label="操作" min-width="120" align="center">
+        <!-- <el-table-column fixed="right" label="操作" min-width="120" align="center">
           <template #default>
             <el-button link type="primary">
               查看详情
             </el-button>
           </template>
-        </el-table-column>
+        </el-table-column> -->
       </el-table>
 
 
