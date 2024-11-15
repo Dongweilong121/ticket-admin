@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { getTicketList, getDict, saveOrUpdateTicketList, getTicketByIdApi, updateIsEnableById } from '@/api/ticket';
 import { ref, onMounted, reactive } from 'vue';
-import { ElMessageBox, ElMessage } from 'element-plus'
+import { ElMessageBox, ElMessage, FormRules } from 'element-plus'
 import { Plus } from '@element-plus/icons-vue'
 import { chenFromatDate } from '@/utils/chen'
 import RichEditor from '@/components/RichEditor/index.vue';
@@ -15,10 +15,6 @@ const tableData = ref([])
 const total = ref(0)
 const pageSize = ref(10)
 const currentPage = ref(1)
-const bolMap = {
-  Y: true,
-  N: false
-}
 
 
 const getTicket = async () => {
@@ -50,7 +46,7 @@ const getTicketDict = async () => {
       }
     })
   } else {
-    ElMessageBox.alert('获取票类字典失败')
+    ElMessage.error('获取票类类型失败')
   }
 }
 const validateMoney = (rule, value, callback) => {
@@ -84,7 +80,7 @@ const rules = reactive({
     { required: true, message: '请输入库存', trigger: 'blur' },
     { type: "number", message: '请输入数字', trigger: 'change' }
   ]
-})
+}) as FormRules
 
 
 const handleClose = (done: () => void) => {
@@ -95,6 +91,7 @@ const handleClose = (done: () => void) => {
     })
     .catch(() => {
       // catch error
+      done()
     })
 }
 

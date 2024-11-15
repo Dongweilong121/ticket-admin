@@ -17,7 +17,7 @@ export default defineComponent({
         "div",
         {},
         {
-          default: () => [this.$slots.default()]
+          default: () => [this.$slots.default()]//第一个参数既可以是一个字符串 (用于原生元素) 也可以是一个 Vue 组件定义。第二个参数是要传递的 prop，第三个参数是子节点。
         }
       ),
       [

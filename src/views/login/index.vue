@@ -86,20 +86,20 @@ onBeforeUnmount(() => {
 <template>
   <div class="select-none">
     <img :src="bg" class="wave" />
-    <div class="flex-c absolute right-5 top-3">
-      <!-- 主题 -->
+    <!-- 主题 -->
+    <!-- <div class="flex-c absolute right-5 top-3">
       <el-switch v-model="dataTheme" inline-prompt :active-icon="dayIcon" :inactive-icon="darkIcon"
         @change="dataThemeChange" />
-    </div>
+    </div> -->
     <div class="login-container">
       <div class="img">
         <component :is="toRaw(illustration)" />
       </div>
       <div class="login-box">
         <div class="login-form">
-          <avatar class="avatar" />
+          <!-- <avatar class="avatar" /> -->
           <Motion>
-            <h2 class="outline-none">{{ title }}</h2>
+            <h2 class="outline-none mb-10">{{ title }}</h2>
           </Motion>
 
           <el-form ref="ruleFormRef" :model="ruleForm" :rules="loginRules" size="large">
